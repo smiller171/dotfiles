@@ -4,6 +4,10 @@ if not functions -q fisher
     fish -c fisher
 end
 
+set -Ux pure_color_success (set_color green)
+set -Ux pure_color_mute (set_color brcyan)
+set -Ux pure_color_dark (set_color brgreen)
+
 # Start or re-use a gpg-agent.
 #
 gpgconf --launch gpg-agent
