@@ -20,3 +20,7 @@ set -U -x SSH_AUTH_SOCK ~/.gnupg/S.gpg-agent.ssh
 source (npx --shell-auto-fallback fish | psub)
 
 thefuck --alias | source
+
+
+# Enable virtualfish
+eval (python -m virtualfish)

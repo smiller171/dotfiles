@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew install python2 python3 nano gnupg pinentry-mac node terraform
+pip3 install virtualenv virtualfish
 ln -sf $(pwd)/fish/fishfile ~/.config/fish/fishfile
 ln -sf $(pwd)/fish/config.fish ~/.config/fish/config.fish
 mkdir ~/.gnupg
