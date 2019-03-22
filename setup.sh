@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew tap wata727/tflint
-brew install python2 python3 nano gnupg pinentry-mac node terraform tflint
+brew install python2 python3 nano gnupg pinentry-mac node terraform tflint mkcert
 pip3 install virtualenv virtualfish
 ln -sf $(pwd)/fish/fishfile ~/.config/fish/fishfile
 ln -sf $(pwd)/fish/config.fish ~/.config/fish/config.fish
@@ -19,3 +19,6 @@ set -U -x SSH_AUTH_SOCK ~/.gnupg/S.gpg-agent.ssh
 
 git clone git@github.com:scopatz/nanorc.git ~/.nano
 ln -sf ~/.nano/nanorc ~/.nanorc
+
+# CA setup
+mkcert -install
