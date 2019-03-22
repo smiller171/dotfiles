@@ -7,6 +7,7 @@ ln -sf $(pwd)/fish/fishfile ~/.config/fish/fishfile
 ln -sf $(pwd)/fish/config.fish ~/.config/fish/config.fish
 mkdir -p ~/.config/fish/completions
 curl -L https://raw.githubusercontent.com/docker/cli/master/contrib/completion/fish/docker.fish > ~/.config/fish/completions/docker.fish
+curl -L https://raw.githubusercontent.com/docker/compose/master/contrib/completion/fish/docker-compose.fish > ~/.config/fish/completions/docker-compose.fish
 mkdir ~/.gnupg
 ln -sf $(pwd)/gpg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
 # Start or re-use a gpg-agent.
