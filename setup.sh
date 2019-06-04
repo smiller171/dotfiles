@@ -26,8 +26,8 @@ curl -L https://raw.githubusercontent.com/docker/cli/master/contrib/completion/f
 curl -L https://raw.githubusercontent.com/docker/compose/master/contrib/completion/fish/docker-compose.fish > ~/.config/fish/completions/docker-compose.fish
 mkdir -p ~/.gnupg
 ln -sf "$(pwd)/gpg/gpg-agent.conf" ~/.gnupg/gpg-agent.conf
-login_user="$(logname)"
-chown -R "${login_user:=root}":"${login_user:=root}" ~/.config
+login_user="$(logname || echo root)"
+chown -R "${login_user}":"${login_user}" ~/.config
 
 git clone git@github.com:scopatz/nanorc.git ~/.nano
 ln -sf ~/.nano/nanorc ~/.nanorc
