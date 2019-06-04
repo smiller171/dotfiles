@@ -29,5 +29,5 @@ ln -sf "$(pwd)/gpg/gpg-agent.conf" ~/.gnupg/gpg-agent.conf
 login_user="$(logname || echo root)"
 chown -R "${login_user}":"${login_user}" ~/.config
 
-git clone git@github.com:scopatz/nanorc.git ~/.nano
+git clone https://github.com/scopatz/nanorc.git ~/.nano
 ln -sf ~/.nano/nanorc ~/.nanorc
