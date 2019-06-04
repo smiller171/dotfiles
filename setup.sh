@@ -8,9 +8,8 @@ case $(uname) in
     mkcert -install
     ;;
   'Linux')
-    apt-add-repository ppa:fish-shell/release-3
     apt-get update
-    apt-get install -y build-essential python python3 python-dev python3-dev python-pip python3-pip gnupg fish
+    apt-get install -y software-properties-common build-essential gnupg python python3 python-dev python3-dev python-pip python3-pip fish
     # curl -sSL https://get.docker.com | /bin/bash
     # curl -L "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
     # chmod +x /usr/local/bin/docker-compose
