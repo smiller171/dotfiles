@@ -5,6 +5,7 @@ case $(uname) in
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew tap wata727/tflint
     brew install python2 python3 nano gnupg pinentry-mac node terraform tflint mkcert jq exercism fish shellcheck
+    brew cask install beardedspice
     mkcert -install
     ;;
   'Linux')
