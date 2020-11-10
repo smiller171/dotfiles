@@ -4,8 +4,72 @@ case $(uname) in
   'Darwin')
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew tap wata727/tflint
-    brew install python2 python3 nano gnupg pinentry-mac node terraform tflint mkcert jq exercism fish shellcheck
-    brew cask install beardedspice
+    brew install act\
+      ansible-lint\
+      ansible\
+      autoconf\
+      aws-iam-authenticator\
+      aws-okta\
+      awscli\
+      azure-cli\
+      coreutils\
+      dep\
+      eksctl\
+      exercism\
+      fish\
+      fswatch\
+      gdbm\
+      gettext\
+      gh\
+      git\
+      gmp\
+      gnu-sed\
+      gnupg\
+      gnupg\
+      gnutils\
+      grep\
+      guile\
+      helm-docs\
+      helm\
+      jq\
+      kubernetes-cli\
+      libffi\
+      libfido2\
+      libgcrypt\
+      mkcert\
+      nano\
+      ncurses\
+      node\
+      nvm\
+      openssh\
+      openssl@1.1\
+      pgpdump\
+      pinentry-mac\
+      pinentry\
+      pkg-config\
+      pre-commit\
+      protobuf\
+      pyenv\
+      python\
+      python2\
+      python3\
+      readline\
+      reviewdog\
+      shellcheck\
+      ssh-copy-id\
+      telnet\
+      terminal-notifier\
+      terraform-docs\
+      terraform\
+      tfenv\
+      tflint\
+      tfsec\
+      thefuck\
+      unbound\
+      watch\
+      wget\
+      xclip\
+      zlib
     mkcert -install
     ;;
   'Linux')
@@ -17,7 +81,7 @@ case $(uname) in
     ;;
 esac
 
-pip3 install virtualenv virtualfish thefuck awscli
+pip3 install virtualenv virtualfish
 pip install virtualenv virtualfish
 mkdir -p ~/.config/fish
 ln -sf "$(pwd)/fish/fishfile" ~/.config/fish/fishfile
