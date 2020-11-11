@@ -17,7 +17,7 @@ set -e SSH_AUTH_SOCK
 set -U -x SSH_AUTH_SOCK ~/.gnupg/S.gpg-agent.ssh
 
 # Enable npx auto-fallback
-source (npx --shell-auto-fallback fish | psub)
+# source (npx --shell-auto-fallback fish | psub)
 
 thefuck --alias | source
 
@@ -36,7 +36,7 @@ set -Ux AWS_SDK_LOAD_CONFIG 1
 # pyenv
 set -gx PATH '/Users/smiller/.pyenv/shims' $PATH
 set -gx PYENV_SHELL fish
-source '/usr/local/Cellar/pyenv/1.2.20/libexec/../completions/pyenv.fish'
+pyenv init - | source
 command pyenv rehash 2>/dev/null
 function pyenv
     set command $argv[1]

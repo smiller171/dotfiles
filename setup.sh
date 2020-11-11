@@ -26,10 +26,9 @@ case $(uname) in
       gnu-sed\
       gnupg\
       gnupg\
-      gnutils\
+      gnutls\
       grep\
       guile\
-      helm-docs\
       helm\
       jq\
       kubernetes-cli\
@@ -51,16 +50,12 @@ case $(uname) in
       protobuf\
       pyenv\
       python\
-      python2\
-      python3\
       readline\
-      reviewdog\
       shellcheck\
       ssh-copy-id\
       telnet\
       terminal-notifier\
       terraform-docs\
-      terraform\
       tfenv\
       tflint\
       tfsec\
@@ -81,18 +76,26 @@ case $(uname) in
     ;;
 esac
 
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+bash -c 'pyenv install 3.9.0' || true
+bash -c 'pyenv install 3.8.6' || true
+bash -c 'pyenv install 2.7.18' || true
+pyenv global 3.9.0 3.8.6 2.7.18 system
+
 pip3 install virtualenv virtualfish
-pip install virtualenv virtualfish
+pip2 install virtualenv virtualfish
 mkdir -p ~/.config/fish
-ln -sf "$(pwd)/fish/fishfile" ~/.config/fish/fishfile
+ln -sf "$(pwd)/fish/fish_plugins" ~/.config/fish/fish_plugins
 ln -sf "$(pwd)/fish/config.fish" ~/.config/fish/config.fish
 mkdir -p ~/.config/fish/completions
 curl -L https://raw.githubusercontent.com/docker/cli/master/contrib/completion/fish/docker.fish > ~/.config/fish/completions/docker.fish
 curl -L https://raw.githubusercontent.com/docker/compose/master/contrib/completion/fish/docker-compose.fish > ~/.config/fish/completions/docker-compose.fish
 mkdir -p ~/.gnupg
+chmod 0700 ~/.gnupg
 ln -sf "$(pwd)/gpg/gpg-agent.conf" ~/.gnupg/gpg-agent.conf
-login_user="$(logname || echo root)"
-chown -R "${login_user}":"${login_user}" ~/.config
+chown -R "${LOGNAME}":"${LOGNAME}" ~/.config || chown -R "${LOGNAME}":"staff" ~/.config
 
 git clone https://github.com/scopatz/nanorc.git ~/.nano
 ln -sf ~/.nano/nanorc ~/.nanorc
