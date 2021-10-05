@@ -10,6 +10,7 @@ set -Ux pure_color_dark (set_color brgreen)
 
 # Start or re-use a gpg-agent.
 #
+set -x GPG_TTY (tty)
 gpgconf --launch gpg-agent
 
 # Ensure that GPG Agent is used as the SSH agent

@@ -2,7 +2,13 @@
 set -ex
 case $(uname) in
   'Darwin')
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    if brew --version; then
+      echo "Homebrew is already installed"
+    else
+      echo "Installing Homebrew"
+      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    fi
+    
     brew tap wata727/tflint
     brew install act\
       ansible-lint\
