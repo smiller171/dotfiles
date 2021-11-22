@@ -105,3 +105,11 @@ chown -R "${LOGNAME}":"${LOGNAME}" ~/.config || chown -R "${LOGNAME}":"staff" ~/
 
 git clone https://github.com/scopatz/nanorc.git ~/.nano
 ln -sf ~/.nano/nanorc ~/.nanorc
+
+git config --global core.editor nano
+git config --global user.email scott@millergeek.xyz
+git config --global user.name 'Scott Miller'
+git config --global commit.gpgSign true
+git config --global pull.rebase true
+git config --global push.default current
+git config --global tag.gpgSign true
