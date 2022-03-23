@@ -15,8 +15,8 @@ if status --is-interactive
     gpgconf --launch gpg-agent
 
     # Ensure that GPG Agent is used as the SSH agent
-    set -e SSH_AUTH_SOCK
-    set -U -x SSH_AUTH_SOCK ~/.gnupg/S.gpg-agent.ssh
+    # set -e SSH_AUTH_SOCK
+    # set -U -x SSH_AUTH_SOCK ~/.gnupg/S.gpg-agent.ssh
 
     # Enable npx auto-fallback
     # source (npx --shell-auto-fallback fish | psub)
@@ -25,7 +25,7 @@ if status --is-interactive
 
 
     # Set PATH
-    set -gx PATH ~/.bin (brew --prefix)/opt/grep/libexec/gnubin $PATH
+    set -gx PATH ~/.bin ~/.local/bin (brew --prefix)/opt/grep/libexec/gnubin $PATH
 
     #Set SHELL
     set -gx SHELL /usr/local/bin/fish
@@ -34,6 +34,13 @@ if status --is-interactive
 
     # Tell Terraform to use AWS Profile
     set -Ux AWS_SDK_LOAD_CONFIG 1
+
+    # Set AWS SSO start url and region
+    set -gx AWS_DEFAULT_SSO_START_URL 'https://storable.awsapps.com/start#/'
+    set -gx AWS_DEFAULT_SSO_REGION us-east-1
+
+    # Set up completion for aws-sso-util
+    eval (env _AWS_SSO_UTIL_COMPLETE=source_fish aws-sso-util)
 
     # tabtab source for packages
     # uninstall by removing these lines
@@ -57,3 +64,8 @@ if status --is-interactive
         end
     end
 end
+
+test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
+# ~/.config/fish/config.fish
+
+starship init fish | source

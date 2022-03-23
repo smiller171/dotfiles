@@ -10,16 +10,22 @@ case $(uname) in
     fi
     
     brew tap wata727/tflint
+    brew tap yleisradio/terraforms
     brew install act\
       ansible-lint\
       ansible\
       autoconf\
+      aws-export-credentials\
       aws-iam-authenticator\
-      aws-okta\
+      aws-sso-util\
       awscli\
       azure-cli\
+      bash\
+      checkov\
+      chtf\
       coreutils\
       dep\
+      docker-credential-helper-ecr\
       eksctl\
       exercism\
       fish\
@@ -28,6 +34,7 @@ case $(uname) in
       gettext\
       gh\
       git\
+      glab\
       gmp\
       gnu-sed\
       gnupg\
@@ -36,6 +43,7 @@ case $(uname) in
       grep\
       guile\
       helm\
+      infracost\
       jq\
       kubernetes-cli\
       libffi\
@@ -57,12 +65,15 @@ case $(uname) in
       pyenv\
       python\
       readline\
+      sdm\
       shellcheck\
       ssh-copy-id\
+      starship\
       telnet\
       terminal-notifier\
+      terraform\
       terraform-docs\
-      tfenv\
+      terrascan\
       tflint\
       tfsec\
       thefuck\
