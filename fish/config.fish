@@ -5,10 +5,6 @@ if status --is-interactive
         fish -c fisher
     end
 
-    set -Ux pure_color_success (set_color green)
-    set -Ux pure_color_mute (set_color brcyan)
-    set -Ux pure_color_dark (set_color brgreen)
-
     # Start or re-use a gpg-agent.
     #
     set -x GPG_TTY (tty)
@@ -25,11 +21,10 @@ if status --is-interactive
 
 
     # Set PATH
-    set -gx PATH ~/.bin ~/.local/bin (brew --prefix)/opt/grep/libexec/gnubin $PATH
+    set -gx PATH ~/.bin ~/.local/bin (brew --prefix)/opt/coreutils/libexec/gnubin (brew --prefix)/opt/grep/libexec/gnubin $PATH
 
     #Set SHELL
     set -gx SHELL /usr/local/bin/fish
-    
     set -gx EDITOR nano
 
     # Tell Terraform to use AWS Profile
@@ -48,7 +43,7 @@ if status --is-interactive
 
 
     # pyenv
-    set -gx PATH '/Users/smiller/.pyenv/shims' $PATH
+    set -gx PATH (pyenv root)/shims $PATH
     set -gx PYENV_SHELL fish
     pyenv init - | source
     command pyenv rehash 2>/dev/null
@@ -63,9 +58,10 @@ if status --is-interactive
                     command pyenv "$command" $argv
         end
     end
-end
 
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
-# ~/.config/fish/config.fish
-
+kubectl completion fish | source
 starship init fish | source
+end
+
+# ~/.config/fish/config.fish

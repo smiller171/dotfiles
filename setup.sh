@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 set -ex
+mkdir -p ~/Downloads
+curl https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/CascadiaCode.zip -o ~/Downloads/CascadiaCode.zip
 case $(uname) in
   'Darwin')
     if brew --version; then
@@ -11,39 +13,36 @@ case $(uname) in
     
     brew tap wata727/tflint
     brew tap yleisradio/terraforms
-    brew install act\
-      ansible-lint\
-      ansible\
+    brew install \
+      # ansible-lint\
+      # ansible\
       autoconf\
       aws-export-credentials\
       aws-iam-authenticator\
       aws-sso-util\
       awscli\
-      azure-cli\
       bash\
-      checkov\
-      chtf\
+      ca-certificates\
       coreutils\
-      dep\
+      curl\
+      docker-completion\
       docker-credential-helper-ecr\
-      eksctl\
       exercism\
       fish\
       fswatch\
-      gdbm\
+      gcc\
+      gd\
       gettext\
       gh\
       git\
-      glab\
+      glib\
       gmp\
       gnu-sed\
-      gnupg\
       gnupg\
       gnutls\
       grep\
       guile\
       helm\
-      infracost\
       jq\
       kubernetes-cli\
       libffi\
@@ -53,40 +52,55 @@ case $(uname) in
       nano\
       ncurses\
       node\
-      nvm\
+      nushell\
       openssh\
-      openssl@1.1\
-      pgpdump\
-      pinentry-mac\
       pinentry\
+      pinentry-mac\
+      pipx\
       pkg-config\
       pre-commit\
       protobuf\
       pyenv\
-      python\
       readline\
-      sdm\
       shellcheck\
+      smiller171/tap/kubecolor\
       ssh-copy-id\
       starship\
       telnet\
       terminal-notifier\
-      terraform\
       terraform-docs\
       terrascan\
+      tfenv\
       tflint\
       tfsec\
-      thefuck\
       unbound\
       watch\
       wget\
       xclip\
-      zlib
+      yq
     mkcert -install
+    login_user="$(logname)"
+    chown -R "${login_user:=root}":staff ~/.config
     ;;
   'Linux')
     apt-get update
-    apt-get install -y software-properties-common build-essential gnupg scdaemon python python3 python-dev python3-dev python-pip python3-pip fish
+    apt-get install -y\
+      software-properties-common\
+      build-essential\
+      gnupg\
+      scdaemon\
+      python\
+      python3\
+      python-dev\
+      python3-dev\
+      python-pip\
+      python3-pip\
+      fish\
+      jq\
+      watch
+    
+    curl -sS https://starship.rs/install.sh | sh
+
     # curl -sSL https://get.docker.com | /bin/bash
     # curl -L "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
     # chmod +x /usr/local/bin/docker-compose
@@ -101,26 +115,25 @@ bash -c 'pyenv install 3.8.6' || true
 bash -c 'pyenv install 2.7.18' || true
 pyenv global 3.9.0 3.8.6 2.7.18 system
 
-pip3 install virtualenv virtualfish
-pip2 install virtualenv virtualfish
+
+# Fish setup
 mkdir -p ~/.config/fish
 ln -sf "$(pwd)/fish/fish_plugins" ~/.config/fish/fish_plugins
 ln -sf "$(pwd)/fish/config.fish" ~/.config/fish/config.fish
 mkdir -p ~/.config/fish/completions
 curl -L https://raw.githubusercontent.com/docker/cli/master/contrib/completion/fish/docker.fish > ~/.config/fish/completions/docker.fish
 curl -L https://raw.githubusercontent.com/docker/compose/master/contrib/completion/fish/docker-compose.fish > ~/.config/fish/completions/docker-compose.fish
+kubectl completion fish | source
+
+
 mkdir -p ~/.gnupg
 chmod 0700 ~/.gnupg
 ln -sf "$(pwd)/gpg/gpg-agent.conf" ~/.gnupg/gpg-agent.conf
-chown -R "${LOGNAME}":"${LOGNAME}" ~/.config || chown -R "${LOGNAME}":"staff" ~/.config
+chown -R "${LOGNAME}":"${LOGNAME}" ~/.config || chown -R "${LOGNAME}":"staff" ~/.config || true
 
 git clone https://github.com/scopatz/nanorc.git ~/.nano
 ln -sf ~/.nano/nanorc ~/.nanorc
 
-git config --global core.editor nano
-git config --global user.email scott@millergeek.xyz
-git config --global user.name 'Scott Miller'
-git config --global commit.gpgSign true
-git config --global pull.rebase true
-git config --global push.default current
-git config --global tag.gpgSign true
+
+ln -sf "$(pwd)/git/.gitconfig" ~/.gitconfig
+ln -sf "$(pwd)/prompt/starship.toml" ~/.config/starship.toml

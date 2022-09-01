@@ -1,0 +1,18 @@
+[init]
+templatedir = ~/.git_template
+	defaultBranch = master
+[core]
+	editor = nano
+[user]
+	email = scott@millergeek.xyz
+	name = Scott Miller
+	signingkey = 71F082B6A370C721
+[commit]
+	gpgSign = true
+[pull]
+	rebase = true
+[push]
+	default = current
+	followTags = true
+[tag]
+	gpgSign = true
