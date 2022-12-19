@@ -17,9 +17,6 @@ if status --is-interactive
     # Enable npx auto-fallback
     # source (npx --shell-auto-fallback fish | psub)
 
-    thefuck --alias | source
-
-
     # Set PATH
     set -gx PATH ~/.bin ~/.local/bin (brew --prefix)/opt/coreutils/libexec/gnubin (brew --prefix)/opt/grep/libexec/gnubin $PATH
 

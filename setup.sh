@@ -117,10 +117,9 @@ esac
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
-bash -c 'pyenv install 3.9.0' || true
-bash -c 'pyenv install 3.8.6' || true
+bash -c 'pyenv install 3.11.0' || true
 bash -c 'pyenv install 2.7.18' || true
-pyenv global 3.9.0 3.8.6 2.7.18 system
+pyenv global 3.11.1 2.7.18 system || true
 
 
 # Fish setup
@@ -130,8 +129,6 @@ ln -sf "$(pwd)/fish/config.fish" ~/.config/fish/config.fish
 mkdir -p ~/.config/fish/completions
 curl -L https://raw.githubusercontent.com/docker/cli/master/contrib/completion/fish/docker.fish > ~/.config/fish/completions/docker.fish
 curl -L https://raw.githubusercontent.com/docker/compose/master/contrib/completion/fish/docker-compose.fish > ~/.config/fish/completions/docker-compose.fish
-kubectl completion fish | source
-
 
 mkdir -p ~/.gnupg
 chmod 0700 ~/.gnupg
