@@ -1,7 +1,15 @@
 #!/usr/bin/env bash
 set -ex
 mkdir -p ~/Downloads
-curl https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/CascadiaCode.zip -o ~/Downloads/CascadiaCode.zip
+curl -sL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/CascadiaCode.zip -o ~/Downloads/CascadiaCode.zip
+mkdir fontfiles
+cd fontfiles
+unzip ~/Downloads/CascadiaCode.zip
+rm *Windows*
+mv *.otf ~/Library/Fonts/
+cd ..
+rm -rf fontfiles
+rm ~/Downloads/CascadiaCode.zip
 case $(uname) in
   'Darwin')
     if brew --version; then
@@ -14,10 +22,7 @@ case $(uname) in
     brew tap wata727/tflint
     brew tap yleisradio/terraforms
     brew install \
-      # ansible-lint\
-      # ansible\
       autoconf\
-      aws-export-credentials\
       aws-iam-authenticator\
       aws-sso-util\
       awscli\
@@ -78,6 +83,8 @@ case $(uname) in
       wget\
       xclip\
       yq
+    brew install --cask visual-studio-code
+    pipx install aws-export-credentials
     mkcert -install
     login_user="$(logname)"
     chown -R "${login_user:=root}":staff ~/.config
