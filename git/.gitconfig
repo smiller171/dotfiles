@@ -6,7 +6,6 @@ templatedir = ~/.git_template
 [user]
 	email = scott@millergeek.xyz
 	name = Scott Miller
-	signingkey = 71F082B6A370C721
 [commit]
 	gpgSign = true
 [pull]
@@ -14,5 +13,10 @@ templatedir = ~/.git_template
 [push]
 	default = current
 	followTags = true
+	gpgSign = if-asked
 [tag]
 	gpgSign = true
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	defaultKeyCommand = sh -c 'echo key::$(ssh-add -L)'

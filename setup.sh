@@ -79,6 +79,7 @@ case $(uname) in
       tfenv\
       tflint\
       tfsec\
+      theseal/ssh-askpass/ssh-askpass
       unbound\
       watch\
       wget\
