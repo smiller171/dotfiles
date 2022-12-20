@@ -12,6 +12,7 @@ rm -rf fontfiles
 rm ~/Downloads/CascadiaCode.zip
 case $(uname) in
   'Darwin')
+    xcode-select --install
     if brew --version; then
       echo "Homebrew is already installed"
     else
