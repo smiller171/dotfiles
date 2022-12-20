@@ -83,6 +83,7 @@ case $(uname) in
       watch\
       wget\
       xclip\
+      ykman\
       yq
     brew install --cask visual-studio-code
     pipx install aws-export-credentials
