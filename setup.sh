@@ -91,6 +91,15 @@ case $(uname) in
     mkcert -install
     login_user="$(logname)"
     chown -R "${login_user:=root}":staff ~/.config
+    # One-time Bash profile setup for VSCode
+    if [ ! -f ~/.bashSetup ]
+    then
+      touch ~/.bash_profile
+      echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.bash_profile
+      echo 'export PATH=~/.bin:~/.local/bin:$(brew --prefix)/bin:$(brew --prefix)/opt/coreutils/libexec/gnubin:$(brew --prefix)/opt/grep/libexec/gnubin:${PATH}' >> ~/.bash_profile
+    fi
+    touch ~/.bashSetup
+
     ;;
   'Linux')
     apt-get update
