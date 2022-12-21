@@ -18,7 +18,7 @@ if status --is-interactive
     # source (npx --shell-auto-fallback fish | psub)
 
     # Set PATH
-    set -gx PATH ~/.bin ~/.local/bin (brew --prefix)/opt/coreutils/libexec/gnubin (brew --prefix)/opt/grep/libexec/gnubin $PATH
+    fish_add_path -m ~/.bin ~/.local/bin (brew --prefix)/bin (brew --prefix)/opt/coreutils/libexec/gnubin (brew --prefix)/opt/grep/libexec/gnubin
 
     #Set SHELL
     set -gx SHELL /usr/local/bin/fish
@@ -40,7 +40,7 @@ if status --is-interactive
 
 
     # pyenv
-    set -gx PATH (pyenv root)/shims $PATH
+    fish_add_path (pyenv root)/shims
     set -gx PYENV_SHELL fish
     pyenv init - | source
     command pyenv rehash 2>/dev/null
