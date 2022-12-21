@@ -142,5 +142,6 @@ git clone https://github.com/scopatz/nanorc.git ~/.nano
 ln -sf ~/.nano/nanorc ~/.nanorc
 
 
+mkdir -p ~/.git_template
 ln -sf "$(pwd)/git/.gitconfig" ~/.gitconfig
 ln -sf "$(pwd)/prompt/starship.toml" ~/.config/starship.toml
