@@ -20,3 +20,11 @@ templatedir = ~/.git_template
 	format = ssh
 [gpg "ssh"]
 	defaultKeyCommand = sh -c 'echo key::$(ssh-add -L)'
+[url "https://"]
+	insteadOf = ssh://git@
+[url "https://github.com/"]
+	insteadOf = git@github.com:
+	insteadOf = ssh://git@github.com/
+[url "https://gitlab.com/"]
+	insteadOf = git@gitlab.com:
+	insteadOf = ssh://git@gitlab.com/
