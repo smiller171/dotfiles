@@ -4,6 +4,7 @@ if status --is-interactive
         curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
         fish -c fisher
     end
+    fisher update
 
     # Start or re-use a gpg-agent.
     #
@@ -26,6 +27,9 @@ if status --is-interactive
 
     # Tell Terraform to use AWS Profile
     set -Ux AWS_SDK_LOAD_CONFIG 1
+
+    # Set GitLab API Token
+    set -gx GITLAB_ACCESS_TOKEN glpat-tzRy9kxQAWyquSV9MkZc
 
     # Set AWS SSO start url and region
     set -gx AWS_DEFAULT_SSO_START_URL 'https://storable.awsapps.com/start#/'
@@ -50,15 +54,15 @@ if status --is-interactive
 
         switch "$command"
             case rehash shell
-                    source (pyenv "sh-$command" $argv|psub)
+                source (pyenv "sh-$command" $argv|psub)
             case '*'
-                    command pyenv "$command" $argv
+                command pyenv "$command" $argv
         end
     end
 
-test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
-kubectl completion fish | source
-starship init fish | source
+    test -e {$HOME}/.iterm2_shell_integration.fish; and source {$HOME}/.iterm2_shell_integration.fish
+    kubectl completion fish | source
+    starship init fish | source
 end
 
 # ~/.config/fish/config.fish
