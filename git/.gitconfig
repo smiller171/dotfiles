@@ -1,6 +1,6 @@
 [init]
-templatedir = ~/.git_template
-	defaultBranch = master
+	templatedir = ~/.git_template
+	defaultbranch = main
 [core]
 	editor = nano
 [user]
