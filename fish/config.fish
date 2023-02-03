@@ -42,7 +42,7 @@ if status --is-interactive
 
     # pyenv
     fish_add_path (pyenv root)/shims
-    set -gx PYENV_SHELL fish
+    set -x PYENV_SHELL fish
     pyenv init - | source
     command pyenv rehash 2>/dev/null
     function pyenv
