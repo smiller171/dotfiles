@@ -29,8 +29,8 @@ if status --is-interactive
     set -Ux AWS_SDK_LOAD_CONFIG 1
 
     # Set AWS SSO start url and region
-    set -gx AWS_DEFAULT_SSO_START_URL 'https://storable.awsapps.com/start#/'
-    set -gx AWS_DEFAULT_SSO_REGION us-east-1
+    # set -gx AWS_DEFAULT_SSO_START_URL 'https://storable.awsapps.com/start#/'
+    # set -gx AWS_DEFAULT_SSO_REGION us-east-1
 
     # Set up completion for aws-sso-util
     eval (env _AWS_SSO_UTIL_COMPLETE=source_fish aws-sso-util)
