@@ -4,7 +4,7 @@ if status --is-interactive
         curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
         fish -c fisher
     end
-    fisher update
+    fisher update >/dev/null
 
     # Start or re-use a gpg-agent.
     #
