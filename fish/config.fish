@@ -22,7 +22,7 @@ if status --is-interactive
     fish_add_path -m ~/.bin ~/.local/bin (brew --prefix)/bin (brew --prefix)/opt/coreutils/libexec/gnubin (brew --prefix)/opt/grep/libexec/gnubin
 
     #Set SHELL
-    set -gx SHELL /usr/local/bin/fish
+    set -x SHELL /usr/local/bin/fish
     set -gx EDITOR nano
 
     # Tell Terraform to use AWS Profile
