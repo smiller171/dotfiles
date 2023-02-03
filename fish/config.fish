@@ -28,9 +28,6 @@ if status --is-interactive
     # Tell Terraform to use AWS Profile
     set -Ux AWS_SDK_LOAD_CONFIG 1
 
-    # Set GitLab API Token
-    set -gx GITLAB_ACCESS_TOKEN glpat-tzRy9kxQAWyquSV9MkZc
-
     # Set AWS SSO start url and region
     set -gx AWS_DEFAULT_SSO_START_URL 'https://storable.awsapps.com/start#/'
     set -gx AWS_DEFAULT_SSO_REGION us-east-1
