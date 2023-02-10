@@ -35,6 +35,8 @@ if status --is-interactive
     # Set up completion for aws-sso-util
     eval (env _AWS_SSO_UTIL_COMPLETE=source_fish aws-sso-util)
 
+    update_kube_context &>/dev/null || true
+
     # tabtab source for packages
     # uninstall by removing these lines
     [ -f ~/.config/tabtab/__tabtab.fish ]; and . ~/.config/tabtab/__tabtab.fish; or true
