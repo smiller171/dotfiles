@@ -35,7 +35,9 @@ if status --is-interactive
     # Set up completion for aws-sso-util
     eval (env _AWS_SSO_UTIL_COMPLETE=source_fish aws-sso-util)
 
-    update_kube_context &>/dev/null || true
+    function update_kube_context --on-variable AWS_PROFILE
+        kubectl config use-context $AWS_PROFILE
+    end
 
     # tabtab source for packages
     # uninstall by removing these lines
