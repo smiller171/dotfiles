@@ -5,8 +5,8 @@ curl -sL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Cascad
 mkdir fontfiles
 cd fontfiles
 unzip ~/Downloads/CascadiaCode.zip
-rm *Windows*
-mv *.otf ~/Library/Fonts/
+rm ./*Windows*
+mv ./*.otf ~/Library/Fonts/
 cd ..
 rm -rf fontfiles
 rm ~/Downloads/CascadiaCode.zip
@@ -19,7 +19,7 @@ case $(uname) in
       echo "Installing Homebrew"
       /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
-    
+
     brew tap wata727/tflint
     brew tap yleisradio/terraforms
     brew install \
@@ -95,7 +95,9 @@ case $(uname) in
     if [ ! -f ~/.bashSetup ]
     then
       touch ~/.bash_profile
+      # shellcheck disable=SC2016
       echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.bash_profile
+      # shellcheck disable=SC2016
       echo 'export PATH=~/.bin:~/.local/bin:$(brew --prefix)/bin:$(brew --prefix)/opt/coreutils/libexec/gnubin:$(brew --prefix)/opt/grep/libexec/gnubin:${PATH}' >> ~/.bash_profile
     fi
     touch ~/.bashSetup
@@ -117,7 +119,7 @@ case $(uname) in
       fish\
       jq\
       watch
-    
+
     curl -sS https://starship.rs/install.sh | sh
 
     # curl -sSL https://get.docker.com | /bin/bash
@@ -154,3 +156,5 @@ ln -sf ~/.nano/nanorc ~/.nanorc
 mkdir -p ~/.git_template
 ln -sf "$(pwd)/git/.gitconfig" ~/.gitconfig
 ln -sf "$(pwd)/prompt/starship.toml" ~/.config/starship.toml
+
+ln -sf "$(pwd)/homedir/.editorconfig" ~/.editorconfig

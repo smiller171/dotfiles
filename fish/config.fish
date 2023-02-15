@@ -19,7 +19,14 @@ if status --is-interactive
     # source (npx --shell-auto-fallback fish | psub)
 
     # Set PATH
-    fish_add_path -m ~/.bin ~/.local/bin (brew --prefix)/bin (brew --prefix)/opt/coreutils/libexec/gnubin (brew --prefix)/opt/grep/libexec/gnubin
+    fish_add_path -m \
+        ~/.bin \
+        ~/.local/bin \
+        (brew --prefix)/bin \
+        (brew --prefix)/opt/gawk/libexec/gnubin \
+        (brew --prefix)/opt/coreutils/libexec/gnubin \
+        (brew --prefix)/opt/grep/libexec/gnubin \
+        (brew --prefix)/opt/gnu-sed/libexec/gnubin
 
     #Set SHELL
     set -x SHELL /usr/local/bin/fish
