@@ -36,6 +36,7 @@ case $(uname) in
       exercism\
       fish\
       fswatch\
+      gawk\
       gcc\
       gd\
       gettext\
