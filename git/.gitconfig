@@ -3,6 +3,7 @@
 	defaultbranch = main
 [core]
 	editor = nano
+	excludesfile = ~/.gitignore
 [user]
 	email = scott@millergeek.xyz
 	name = Scott Miller

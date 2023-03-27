@@ -168,6 +168,7 @@ ln -sf ~/.nano/nanorc ~/.nanorc
 
 mkdir -p ~/.git_template
 ln -sf "$(pwd)/git/.gitconfig" ~/.gitconfig
+ln -sf "$(pwd)/git/global.gitignore" ~/.gitignore
 ln -sf "$(pwd)/prompt/starship.toml" ~/.config/starship.toml
 
 ln -sf "$(pwd)/homedir/.editorconfig" ~/.editorconfig
