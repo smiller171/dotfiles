@@ -25,10 +25,11 @@ if status --is-interactive
         ~/.bin \
         ~/.local/bin \
         (brew --prefix)/bin \
-        (brew --prefix)/opt/gawk/libexec/gnubin \
-        (brew --prefix)/opt/coreutils/libexec/gnubin \
-        (brew --prefix)/opt/grep/libexec/gnubin \
-        (brew --prefix)/opt/gnu-sed/libexec/gnubin
+        (brew --prefix openssh)/bin \
+        (brew --prefix gawk)/libexec/gnubin \
+        (brew --prefix coreutils)/libexec/gnubin \
+        (brew --prefix grep)/libexec/gnubin \
+        (brew --prefix gnu-sed)/libexec/gnubin
 
     #Set SHELL
     set -x SHELL /usr/local/bin/fish
