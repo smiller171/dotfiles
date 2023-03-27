@@ -71,6 +71,8 @@ if status --is-interactive
     test -e {$HOME}/.iterm2_shell_integration.fish; and source {$HOME}/.iterm2_shell_integration.fish
     kubectl completion fish | source
     starship init fish | source
+
+    set -x THEFUCK_OVERRIDDEN_ALIASES (alias | awk '{print $2}' | string join ',')
 end
 
 # ~/.config/fish/config.fish

@@ -22,8 +22,11 @@ case $(uname) in
 
     brew tap wata727/tflint
     brew tap yleisradio/terraforms
+    brew tap jakehilborn/jakehilborn
     brew install \
+      argocd\
       autoconf\
+      autotag\
       aws-iam-authenticator\
       aws-sso-util\
       awscli\
@@ -31,10 +34,11 @@ case $(uname) in
       ca-certificates\
       coreutils\
       curl\
+      displayplacer\
       docker-completion\
       docker-credential-helper-ecr\
-      exercism\
       fish\
+      fluxcd/tap/flux\
       fswatch\
       gawk\
       gcc\
@@ -42,22 +46,26 @@ case $(uname) in
       gettext\
       gh\
       git\
+      glab\
       glib\
-      gmp\
+      gping\
       gnu-sed\
       gnupg\
       gnutls\
       grep\
-      guile\
+      hadolint\
       helm\
       jq\
+      k9s\
+      kreuzwerker/taps/m1-terraform-provider-helper\
+      kubectl\
       kubernetes-cli\
+      kustomize\
       libffi\
       libfido2\
       libgcrypt\
       mkcert\
       nano\
-      ncurses\
       node\
       nushell\
       openssh\
@@ -66,12 +74,14 @@ case $(uname) in
       pipx\
       pkg-config\
       pre-commit\
-      protobuf\
       pyenv\
       readline\
       shellcheck\
+      shfmt\
       smiller171/tap/kubecolor\
+      sops\
       ssh-copy-id\
+      sshuttle\
       starship\
       telnet\
       terminal-notifier\
@@ -80,8 +90,10 @@ case $(uname) in
       tfenv\
       tflint\
       tfsec\
-      theseal/ssh-askpass/ssh-askpass
-      unbound\
+      thefuck\
+      theseal/ssh-askpass/ssh-askpass\
+      trunk-io\
+      velero\
       watch\
       wget\
       xclip\
