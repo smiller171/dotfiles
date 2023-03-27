@@ -4,7 +4,9 @@ if status --is-interactive
         curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
         fish -c fisher
     end
-    fisher update >/dev/null
+    if test "$__fisher_updated" != (date +%G%V) # Only update fisher once a week
+        fisher update && set -U __fisher_updated (date +%G%V)
+    end
 
     # Start or re-use a gpg-agent.
     #
