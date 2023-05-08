@@ -2,17 +2,17 @@
 set -ex
 mkdir -p ~/Downloads
 curl -sL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/CascadiaCode.zip -o ~/Downloads/CascadiaCode.zip
-mkdir fontfiles
+mkdir -p fontfiles
 cd fontfiles
 unzip ~/Downloads/CascadiaCode.zip
-rm ./*Windows*
-mv ./*.otf ~/Library/Fonts/
+rm ./*Windows* || echo 'No windows-specific font files'
+mv ./*.ttf ~/Library/Fonts/
 cd ..
 rm -rf fontfiles
 rm ~/Downloads/CascadiaCode.zip
 case $(uname) in
   'Darwin')
-    xcode-select --install
+    xcode-select --install || true
     if brew --version; then
       echo "Homebrew is already installed"
     else
@@ -24,9 +24,9 @@ case $(uname) in
     brew tap yleisradio/terraforms
     brew tap jakehilborn/jakehilborn
     brew install \
+      arc\
       argocd\
       autoconf\
-      autotag\
       aws-iam-authenticator\
       aws-sso-util\
       awscli\
@@ -37,6 +37,7 @@ case $(uname) in
       displayplacer\
       docker-completion\
       docker-credential-helper-ecr\
+      dockutil\
       fish\
       fluxcd/tap/flux\
       fswatch\
@@ -48,6 +49,7 @@ case $(uname) in
       git\
       glab\
       glib\
+      google-chrome\
       gping\
       gnu-sed\
       gnupg\
@@ -55,6 +57,7 @@ case $(uname) in
       grep\
       hadolint\
       helm\
+      iterm2\
       jq\
       k9s\
       kreuzwerker/taps/m1-terraform-provider-helper\
@@ -101,8 +104,14 @@ case $(uname) in
       yq
     brew install --cask visual-studio-code
     pipx install aws-export-credentials
+    curl -sSL https://github.com/kcrawford/dockutil/releases/download/3.0.2/dockutil-3.0.2.pkg > /tmp/dockutil.pkg
+    sudo installer -pkg /tmp/dockutil.pkg -target /
+
+
     mkcert -install
     login_user="$(logname)"
+    mkdir -p ~/.config
+    mkdir -p ~/.ssh
     chown -R "${login_user:=root}":staff ~/.config
     # One-time Bash profile setup for VSCode
     if [ ! -f ~/.bashSetup ]
@@ -157,10 +166,10 @@ mkdir -p ~/.config/fish/completions
 curl -L https://raw.githubusercontent.com/docker/cli/master/contrib/completion/fish/docker.fish > ~/.config/fish/completions/docker.fish
 curl -L https://raw.githubusercontent.com/docker/compose/master/contrib/completion/fish/docker-compose.fish > ~/.config/fish/completions/docker-compose.fish
 
-mkdir -p ~/.gnupg
-chmod 0700 ~/.gnupg
-ln -sf "$(pwd)/gpg/gpg-agent.conf" ~/.gnupg/gpg-agent.conf
-chown -R "${LOGNAME}":"${LOGNAME}" ~/.config || chown -R "${LOGNAME}":"staff" ~/.config || true
+chown -R "${LOGNAME}":"${LOGNAME}" ~/.config || chown -R "${LOGNAME}":"staff" ~/.config
+
+sudo chsh -s $(which fish) ${LOGNAME}
+sudo chsh -s $(which fish)
 
 git clone https://github.com/scopatz/nanorc.git ~/.nano
 ln -sf ~/.nano/nanorc ~/.nanorc
