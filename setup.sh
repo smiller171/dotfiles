@@ -61,6 +61,7 @@ case $(uname) in
       iterm2\
       jq\
       k9s\
+      keybase\
       kreuzwerker/taps/m1-terraform-provider-helper\
       kubectl\
       kubernetes-cli\
@@ -103,7 +104,7 @@ case $(uname) in
       xclip\
       ykman\
       yq
-    brew install --cask visual-studio-code
+    brew install --cask visual-studio-code bettertouchtool keybase
     pipx install aws-export-credentials
     curl -sSL https://github.com/kcrawford/dockutil/releases/download/3.0.2/dockutil-3.0.2.pkg > /tmp/dockutil.pkg
     sudo installer -pkg /tmp/dockutil.pkg -target /
