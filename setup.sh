@@ -109,7 +109,7 @@ case $(uname) in
     ./dock-cleanup.fish
     defaults write com.googlecode.iterm2 PrefsCustomFolder -string "/Users/${LOGNAME}/.config/iterm2"
     defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
-    launchctl disable user/501/com.openssh.ssh-agent
+    launchctl disable user/${UID}/com.openssh.ssh-agent
 
     mkcert -install
     login_user="$(logname)"
