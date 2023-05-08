@@ -10,7 +10,7 @@ mv ./*.ttf ~/Library/Fonts/
 cd ..
 rm -rf fontfiles
 rm ~/Downloads/CascadiaCode.zip
-mkdir -p ~/.config/iterm2
+mkdir -p ~/.config
 mkdir -p ~/.ssh
 case $(uname) in
   'Darwin')
