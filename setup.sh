@@ -39,7 +39,6 @@ case $(uname) in
       displayplacer\
       docker-completion\
       docker-credential-helper-ecr\
-      dockutil\
       fish\
       fluxcd/tap/flux\
       fswatch\
@@ -108,7 +107,7 @@ case $(uname) in
     pipx install aws-export-credentials
     curl -sSL https://github.com/kcrawford/dockutil/releases/download/3.0.2/dockutil-3.0.2.pkg > /tmp/dockutil.pkg
     sudo installer -pkg /tmp/dockutil.pkg -target /
-    ./dock-cleanup.fish
+    ./dock-cleanup.fish || true
     ln -sf "$(pwd)/iterm2" ~/.config/iterm2
     defaults write com.googlecode.iterm2 PrefsCustomFolder -string "/Users/${LOGNAME}/.config/iterm2"
     defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
@@ -157,8 +156,8 @@ esac
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
-bash -c 'pyenv install 3.11.0' || true
-bash -c 'pyenv install 2.7.18' || true
+bash -c 'pyenv install -y 3' || true
+bash -c 'pyenv install -y 2' || true
 pyenv global 3.11.1 2.7.18 system || true
 
 
@@ -175,7 +174,7 @@ chown -R "${LOGNAME}":"${LOGNAME}" ~/.config || chown -R "${LOGNAME}":"staff" ~/
 sudo chsh -s $(which fish) ${LOGNAME}
 sudo chsh -s $(which fish)
 
-git clone https://github.com/scopatz/nanorc.git ~/.nano
+git clone https://github.com/scopatz/nanorc.git ~/.nano || true
 ln -sf ~/.nano/nanorc ~/.nanorc
 
 
