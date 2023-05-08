@@ -104,7 +104,13 @@ case $(uname) in
       xclip\
       ykman\
       yq
-    brew install --cask visual-studio-code bettertouchtool keybase
+    brew install --cask\
+      bettertouchtool\
+      keybase\
+      obsidian\
+      rocket\
+      signal\
+      visual-studio-code
     pipx install aws-export-credentials
     curl -sSL https://github.com/kcrawford/dockutil/releases/download/3.0.2/dockutil-3.0.2.pkg > /tmp/dockutil.pkg
     sudo installer -pkg /tmp/dockutil.pkg -target /
