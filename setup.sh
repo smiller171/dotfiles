@@ -10,6 +10,8 @@ mv ./*.ttf ~/Library/Fonts/
 cd ..
 rm -rf fontfiles
 rm ~/Downloads/CascadiaCode.zip
+mkdir -p ~/.config/iterm2
+mkdir -p ~/.ssh
 case $(uname) in
   'Darwin')
     xcode-select --install || true
@@ -107,14 +109,13 @@ case $(uname) in
     curl -sSL https://github.com/kcrawford/dockutil/releases/download/3.0.2/dockutil-3.0.2.pkg > /tmp/dockutil.pkg
     sudo installer -pkg /tmp/dockutil.pkg -target /
     ./dock-cleanup.fish
+    ln -sf "$(pwd)/iterm2" ~/.config/iterm2
     defaults write com.googlecode.iterm2 PrefsCustomFolder -string "/Users/${LOGNAME}/.config/iterm2"
     defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
     launchctl disable user/${UID}/com.openssh.ssh-agent
 
     mkcert -install
     login_user="$(logname)"
-    mkdir -p ~/.config
-    mkdir -p ~/.ssh
     chown -R "${login_user:=root}":staff ~/.config
     # One-time Bash profile setup for VSCode
     if [ ! -f ~/.bashSetup ]
