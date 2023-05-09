@@ -3,6 +3,15 @@ set -ex
 mkdir -p ~/Downloads
 mkdir -p ~/.config
 mkdir -p ~/.ssh
+
+# Fish setup
+mkdir -p ~/.config/fish
+ln -sf "$(pwd)/fish/fish_plugins" ~/.config/fish/fish_plugins
+ln -sf "$(pwd)/fish/config.fish" ~/.config/fish/config.fish
+mkdir -p ~/.config/fish/completions
+curl -L https://raw.githubusercontent.com/docker/cli/master/contrib/completion/fish/docker.fish > ~/.config/fish/completions/docker.fish
+curl -L https://raw.githubusercontent.com/docker/compose/master/contrib/completion/fish/docker-compose.fish > ~/.config/fish/completions/docker-compose.fish
+
 case $(uname) in
   'Darwin')
     curl -sL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/CascadiaCode.zip -o ~/Downloads/CascadiaCode.zip
@@ -138,8 +147,9 @@ case $(uname) in
 
     ;;
   'Linux')
-    apt-get update
-    apt-get install -y\
+    ln -ls /usr/bin/fish /usr/local/bin/fish
+    sudo apt-get update || apt-get update
+    PACKAGES=(
       software-properties-common\
       build-essential\
       gnupg\
@@ -153,6 +163,8 @@ case $(uname) in
       fish\
       jq\
       watch
+    )
+    sudo apt-get install -y "${PACKAGES[@]}" || apt-get install -y "${PACKAGES[@]}"
 
     curl -sS https://starship.rs/install.sh | sh
 
@@ -168,15 +180,6 @@ eval "$(pyenv init -)"
 bash -c 'pyenv install -y 3' || true
 bash -c 'pyenv install -y 2' || true
 pyenv global 3.11.1 2.7.18 system || true
-
-
-# Fish setup
-mkdir -p ~/.config/fish
-ln -sf "$(pwd)/fish/fish_plugins" ~/.config/fish/fish_plugins
-ln -sf "$(pwd)/fish/config.fish" ~/.config/fish/config.fish
-mkdir -p ~/.config/fish/completions
-curl -L https://raw.githubusercontent.com/docker/cli/master/contrib/completion/fish/docker.fish > ~/.config/fish/completions/docker.fish
-curl -L https://raw.githubusercontent.com/docker/compose/master/contrib/completion/fish/docker-compose.fish > ~/.config/fish/completions/docker-compose.fish
 
 chown -R "${LOGNAME}":"${LOGNAME}" ~/.config || chown -R "${LOGNAME}":"staff" ~/.config
 
