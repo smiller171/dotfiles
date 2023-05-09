@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -ex
 
-LOGNAME="$(logname)"
-ID="$(id -un)"
+LOGNAME="$(logname)" || true
+ID="$(id -un)" || ID="$(whoami)"
 login_user="${LOGNAME:=${ID}}"
 
 mkdir -p ~/Downloads
