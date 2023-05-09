@@ -2,7 +2,8 @@
 set -ex
 
 LOGNAME="$(logname)"
-login_user="$(logname)"
+ID="$(id -un)"
+login_user="${LOGNAME:=${ID}}"
 
 mkdir -p ~/Downloads
 mkdir -p ~/.config
@@ -131,7 +132,7 @@ case $(uname) in
     sudo installer -pkg /tmp/dockutil.pkg -target /
     ./dock-cleanup.fish || true
     ln -sf "$(pwd)/iterm2" ~/.config/iterm2
-    defaults write com.googlecode.iterm2 PrefsCustomFolder -string "/Users/${LOGNAME}/.config/iterm2"
+    defaults write com.googlecode.iterm2 PrefsCustomFolder -string "/Users/${login_user}/.config/iterm2"
     defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
     launchctl disable user/${UID}/com.openssh.ssh-agent
 
@@ -181,9 +182,9 @@ bash -c 'pyenv install -y 3' || true
 bash -c 'pyenv install -y 2' || true
 pyenv global 3.11.1 2.7.18 system || true
 
-chown -R "${LOGNAME}":"${LOGNAME}" ~/.config || chown -R "${LOGNAME}":"staff" ~/.config
+chown -R "${login_user}":"${login_user}" ~/.config || chown -R "${login_user}":"staff" ~/.config
 
-sudo chsh -s "$(which fish)" "${LOGNAME}"
+sudo chsh -s "$(which fish)" "${login_user}"
 sudo chsh -s "$(which fish)"
 
 git clone https://github.com/scopatz/nanorc.git ~/.nano || true
