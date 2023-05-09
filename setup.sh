@@ -154,11 +154,8 @@ case $(uname) in
       build-essential\
       gnupg\
       scdaemon\
-      python\
       python3\
-      python-dev\
       python3-dev\
-      python-pip\
       python3-pip\
       fish\
       jq\
