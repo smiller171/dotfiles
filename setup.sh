@@ -147,7 +147,7 @@ case $(uname) in
 
     ;;
   'Linux')
-    ln -sf /usr/bin/fish /usr/local/bin/fish
+    sudo ln -sf /usr/bin/fish /usr/local/bin/fish || ln -sf /usr/bin/fish /usr/local/bin/fish
     sudo apt-get update || apt-get update
     PACKAGES=(
       software-properties-common\
