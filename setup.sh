@@ -1,19 +1,20 @@
 #!/usr/bin/env bash
 set -ex
 mkdir -p ~/Downloads
-curl -sL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/CascadiaCode.zip -o ~/Downloads/CascadiaCode.zip
-mkdir -p fontfiles
-cd fontfiles
-unzip ~/Downloads/CascadiaCode.zip
-rm ./*Windows* || echo 'No windows-specific font files'
-mv ./*.ttf ~/Library/Fonts/
-cd ..
-rm -rf fontfiles
-rm ~/Downloads/CascadiaCode.zip
 mkdir -p ~/.config
 mkdir -p ~/.ssh
 case $(uname) in
   'Darwin')
+    curl -sL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/CascadiaCode.zip -o ~/Downloads/CascadiaCode.zip
+    mkdir -p fontfiles
+    cd fontfiles
+    unzip ~/Downloads/CascadiaCode.zip
+    rm ./*Windows* || echo 'No windows-specific font files'
+    mv ./*.ttf ~/Library/Fonts/
+    cd ..
+    rm -rf fontfiles
+    rm ~/Downloads/CascadiaCode.zip
+
     xcode-select --install || true
     if brew --version; then
       echo "Homebrew is already installed"
@@ -179,8 +180,8 @@ curl -L https://raw.githubusercontent.com/docker/compose/master/contrib/completi
 
 chown -R "${LOGNAME}":"${LOGNAME}" ~/.config || chown -R "${LOGNAME}":"staff" ~/.config
 
-sudo chsh -s $(which fish) ${LOGNAME}
-sudo chsh -s $(which fish)
+sudo chsh -s "$(which fish)" "${LOGNAME}"
+sudo chsh -s "$(which fish)"
 
 git clone https://github.com/scopatz/nanorc.git ~/.nano || true
 ln -sf ~/.nano/nanorc ~/.nanorc
