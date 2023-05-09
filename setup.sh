@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 set -ex
+
+LOGNAME="$(logname)"
+login_user="$(logname)"
+
 mkdir -p ~/Downloads
 mkdir -p ~/.config
 mkdir -p ~/.ssh
@@ -132,7 +136,6 @@ case $(uname) in
     launchctl disable user/${UID}/com.openssh.ssh-agent
 
     mkcert -install
-    login_user="$(logname)"
     chown -R "${login_user:=root}":staff ~/.config
     # One-time Bash profile setup for VSCode
     if [ ! -f ~/.bashSetup ]
