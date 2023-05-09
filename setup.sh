@@ -37,7 +37,6 @@ case $(uname) in
       coreutils\
       curl\
       displayplacer\
-      docker-completion\
       docker-credential-helper-ecr\
       fish\
       fluxcd/tap/flux\
@@ -106,10 +105,12 @@ case $(uname) in
       yq
     brew install --cask\
       bettertouchtool\
+      docker\
       keybase\
       obsidian\
       rocket\
       signal\
+      unite\
       visual-studio-code
     pipx install aws-export-credentials
     curl -sSL https://github.com/kcrawford/dockutil/releases/download/3.0.2/dockutil-3.0.2.pkg > /tmp/dockutil.pkg
