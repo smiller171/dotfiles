@@ -163,7 +163,7 @@ case $(uname) in
     )
     sudo apt-get install -y "${PACKAGES[@]}" || apt-get install -y "${PACKAGES[@]}"
 
-    curl -sS https://starship.rs/install.sh | sh
+    curl -sS https://starship.rs/install.sh | bash -s -- --yes
 
     # curl -sSL https://get.docker.com | /bin/bash
     # curl -L "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
