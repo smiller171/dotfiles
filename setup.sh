@@ -117,7 +117,8 @@ case $(uname) in
       wget\
       xclip\
       ykman\
-      yq
+      yq\
+      yubico-authenticator
     brew install --cask\
       bettertouchtool\
       docker\
