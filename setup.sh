@@ -8,6 +8,7 @@ login_user="${LOGNAME:=${ID}}"
 mkdir -p ~/Downloads
 mkdir -p ~/.config
 mkdir -p ~/.ssh
+mkdir -p ~/.gnupg
 
 # Fish setup
 mkdir -p ~/.config/fish
