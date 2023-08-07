@@ -30,11 +30,13 @@ case $(uname) in
     rm ~/Downloads/CascadiaCode.zip
 
     xcode-select --install || true
+    eval "$(/opt/homebrew/bin/brew shellenv)"
     if brew --version; then
       echo "Homebrew is already installed"
     else
       echo "Installing Homebrew"
       /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      eval "$(/opt/homebrew/bin/brew shellenv)"
     fi
 
     brew tap wata727/tflint
@@ -83,6 +85,7 @@ case $(uname) in
       libffi\
       libfido2\
       libgcrypt\
+      mas-cli\
       mkcert\
       nano\
       node\
@@ -120,6 +123,7 @@ case $(uname) in
       yq\
       yubico-authenticator
     brew install --cask\
+      beeper\
       bettertouchtool\
       docker\
       keybase\
@@ -128,6 +132,8 @@ case $(uname) in
       signal\
       unite\
       visual-studio-code
+    mas install 803453959  # Slack
+    mas install 1291898086 # Toggl Track
     pipx install aws-export-credentials
     curl -sSL https://github.com/kcrawford/dockutil/releases/download/3.0.2/dockutil-3.0.2.pkg > /tmp/dockutil.pkg
     sudo installer -pkg /tmp/dockutil.pkg -target /
@@ -181,7 +187,6 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 bash -c 'pyenv install -y 3' || true
 bash -c 'pyenv install -y 2' || true
-pyenv global 3.11.1 2.7.18 system || true
 
 chown -R "${login_user}":"${login_user}" ~/.config || chown -R "${login_user}":"staff" ~/.config
 
