@@ -67,11 +67,11 @@ case $(uname) in
       git\
       glab\
       glib\
-      google-chrome\
-      gping\
       gnu-sed\
       gnupg\
       gnutls\
+      google-chrome\
+      gping\
       grep\
       hadolint\
       helm\
@@ -86,16 +86,17 @@ case $(uname) in
       libffi\
       libfido2\
       libgcrypt\
-      mas-cli\
+      mas\
       mkcert\
       nano\
       node\
       nushell\
       openssh\
-      pinentry\
       pinentry-mac\
+      pinentry\
       pipx\
       pkg-config\
+      postman\
       pre-commit\
       pyenv\
       readline\
