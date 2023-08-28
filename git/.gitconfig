@@ -4,6 +4,7 @@
 [core]
 	editor = nano
 	excludesfile = ~/.gitignore
+	trustctime = false
 [user]
 	email = scott@millergeek.xyz
 	name = Scott Miller
