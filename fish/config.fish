@@ -29,7 +29,8 @@ if status --is-interactive
         (brew --prefix gawk)/libexec/gnubin \
         (brew --prefix coreutils)/libexec/gnubin \
         (brew --prefix grep)/libexec/gnubin \
-        (brew --prefix gnu-sed)/libexec/gnubin
+        (brew --prefix gnu-sed)/libexec/gnubin \
+        $HOME/.jenv/bin
 
     #Set SHELL
     set -x SHELL /usr/local/bin/fish
@@ -45,9 +46,9 @@ if status --is-interactive
     # Set up completion for aws-sso-util
     eval (env _AWS_SSO_UTIL_COMPLETE=source_fish aws-sso-util)
 
-#    function update_kube_context --on-variable AWS_PROFILE
-#        kubectl config use-context $AWS_PROFILE
-#    end
+    #    function update_kube_context --on-variable AWS_PROFILE
+    #        kubectl config use-context $AWS_PROFILE
+    #    end
 
     # tabtab source for packages
     # uninstall by removing these lines
@@ -78,4 +79,10 @@ if status --is-interactive
     set -x THEFUCK_OVERRIDDEN_ALIASES (alias | awk '{print $2}' | string join ',')
 end
 
-# ~/.config/fish/config.fish
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+if test -f /opt/homebrew/Caskroom/miniconda/base/bin/conda
+    eval /opt/homebrew/Caskroom/miniconda/base/bin/conda "shell.fish" hook $argv | source
+end
+# <<< conda initialize <<<
