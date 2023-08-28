@@ -136,9 +136,16 @@ case $(uname) in
     mas install 803453959  # Slack
     mas install 1291898086 # Toggl Track
     pipx install aws-export-credentials
-    curl -sSL https://github.com/kcrawford/dockutil/releases/download/3.0.2/dockutil-3.0.2.pkg > /tmp/dockutil.pkg
+
+    # dockutil
+    dockutil_version=$(curl -sSL \
+             -H 'Accept: application/vnd.github+json' \
+             -H 'X-GitHub-Api-Version: 2022-11-28' \
+             https://api.github.com/repos/kcrawford/dockutil/releases/latest | jq -r '.tag_name')
+    curl -sSL "https://github.com/kcrawford/dockutil/releases/download/${dockutil_version}/dockutil-${dockutil_version}.pkg" > /tmp/dockutil.pkg
     sudo installer -pkg /tmp/dockutil.pkg -target /
     ./dock-cleanup.fish || true
+    
     ln -sf "$(pwd)/iterm2" ~/.config/iterm2
     defaults write com.googlecode.iterm2 PrefsCustomFolder -string "/Users/${login_user}/.config/iterm2"
     defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
