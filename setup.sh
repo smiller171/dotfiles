@@ -211,3 +211,15 @@ ln -sf "$(pwd)/git/global.gitignore" ~/.gitignore
 ln -sf "$(pwd)/prompt/starship.toml" ~/.config/starship.toml
 
 ln -sf "$(pwd)/homedir/.editorconfig" ~/.editorconfig
+
+
+company=$(curl -Ls \
+  -H 'Accept: application/vnd.github+json' \
+  -H 'X-GitHub-Api-Version: 2022-11-28' \
+  https://api.github.com/users/smiller171 | jq -r '.company')
+
+case "${company}" in
+  'Apothesource')
+    source apothesource.sh
+    ;;
+esac
