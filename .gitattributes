@@ -1,1 +1,2 @@
 fish/fish_plugins filter=exovera
+git/.gitconfig filter=git-email
