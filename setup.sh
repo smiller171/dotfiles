@@ -122,6 +122,7 @@ case $(uname) in
       wget\
       xclip\
       ykman\
+      yt-music\
       yq\
       yubico-authenticator
     brew install --cask\
@@ -146,7 +147,7 @@ case $(uname) in
     curl -sSL "https://github.com/kcrawford/dockutil/releases/download/${dockutil_version}/dockutil-${dockutil_version}.pkg" > /tmp/dockutil.pkg
     sudo installer -pkg /tmp/dockutil.pkg -target /
     ./dock-cleanup.fish || true
-    
+
     ln -sf "$(pwd)/iterm2" ~/.config/iterm2
     defaults write com.googlecode.iterm2 PrefsCustomFolder -string "/Users/${login_user}/.config/iterm2"
     defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
