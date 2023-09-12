@@ -1,0 +1,9 @@
+[core]
+  trustctime = false
+
+[user]
+  email = scott.miller17@va.gov
+  signingKey = 6F30E1FA034FA742
+
+[gpg]
+  format = openpgp

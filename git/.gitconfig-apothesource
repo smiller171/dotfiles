@@ -1,0 +1,5 @@
+[core]
+  trustctime = false
+
+[user]
+  email = scott.miller@apothesource.com

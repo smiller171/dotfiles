@@ -15,8 +15,8 @@ if status --is-interactive
 
     # Start or re-use a gpg-agent.
     #
-    # set -x GPG_TTY (tty)
-    # gpgconf --launch gpg-agent
+    set -x GPG_TTY (tty)
+    gpgconf --launch gpg-agent
 
     # Ensure that GPG Agent is used as the SSH agent
     # set -e SSH_AUTH_SOCK
