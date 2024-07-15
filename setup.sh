@@ -31,18 +31,34 @@ case $(uname) in
     rm ~/Downloads/CascadiaCode.zip
 
     xcode-select --install || true
-    eval "$(/opt/homebrew/bin/brew shellenv)"
+    case $(uname -m) in
+      'x86_64')
+        eval "$(/usr/local/bin/brew shellenv)"
+        ;;
+      'arm64')
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+        ;;
+    esac
+
     if brew --version; then
       echo "Homebrew is already installed"
     else
       echo "Installing Homebrew"
       /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-      eval "$(/opt/homebrew/bin/brew shellenv)"
+      case $(uname -m) in
+        'x86_64')
+          eval "$(/usr/local/bin/brew shellenv)"
+          ;;
+        'arm64')   
+          eval "$(/opt/homebrew/bin/brew shellenv)"
+          ;;
+      esac
     fi
 
     brew tap wata727/tflint
     brew tap yleisradio/terraforms
     brew tap jakehilborn/jakehilborn
+    brew install google-chrome || true
     brew install \
       arc\
       argocd\
@@ -70,7 +86,6 @@ case $(uname) in
       gnu-sed\
       gnupg\
       gnutls\
-      google-chrome\
       gping\
       grep\
       hadolint\
@@ -134,10 +149,10 @@ case $(uname) in
       rocket\
       signal\
       unite\
-      visual-studio-code
-    mas install 803453959  # Slack
-    mas install 1291898086 # Toggl Track
-    pipx install aws-export-credentials
+      visual-studio-code\
+      zed
+    mas install 803453959 || true  # Slack
+    pipx install aws-export-credentials || true
 
     # dockutil
     dockutil_version=$(curl -sSL \
@@ -160,7 +175,14 @@ case $(uname) in
     then
       touch ~/.bash_profile
       # shellcheck disable=SC2016
-      echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.bash_profile
+      case $(uname -m) in
+        'x86_64')
+          echo 'eval "$(/usr/local/bin/brew shellenv)"' >> ~/.bash_profile
+          ;;
+        'arm64')   
+          echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.bash_profile
+          ;;
+      esac
       # shellcheck disable=SC2016
       echo 'export PATH=~/.bin:~/.local/bin:$(brew --prefix)/bin:$(brew --prefix)/opt/coreutils/libexec/gnubin:$(brew --prefix)/opt/grep/libexec/gnubin:${PATH}' >> ~/.bash_profile
     fi
