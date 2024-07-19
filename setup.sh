@@ -94,6 +94,7 @@ case $(uname) in
       jq\
       k9s\
       keybase\
+      keymapp\
       kreuzwerker/taps/m1-terraform-provider-helper\
       kubectl\
       kubernetes-cli\
@@ -146,9 +147,9 @@ case $(uname) in
       docker\
       keybase\
       obsidian\
+      orbstack\
       rocket\
       signal\
-      unite\
       visual-studio-code\
       zed
     mas install 803453959 || true  # Slack
@@ -168,7 +169,7 @@ case $(uname) in
     defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
     launchctl disable user/${UID}/com.openssh.ssh-agent
 
-    mkcert -install
+    mkcert -install || true
     chown -R "${login_user:=root}":staff ~/.config
     # One-time Bash profile setup for VSCode
     if [ ! -f ~/.bashSetup ]
