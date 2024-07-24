@@ -65,6 +65,7 @@ case $(uname) in
       autoconf\
       aws-iam-authenticator\
       aws-sso-util\
+      aws-vault\
       awscli\
       bash\
       ca-certificates\
