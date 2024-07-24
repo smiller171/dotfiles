@@ -14,6 +14,7 @@ mkdir -p ~/.gnupg
 mkdir -p ~/.config/fish
 ln -sf "$(pwd)/fish/fish_plugins" ~/.config/fish/fish_plugins
 ln -sf "$(pwd)/fish/config.fish" ~/.config/fish/config.fish
+ln -sf "$(pwd)/awsconfig" ~/.aws/config
 mkdir -p ~/.config/fish/completions
 curl -L https://raw.githubusercontent.com/docker/cli/master/contrib/completion/fish/docker.fish > ~/.config/fish/completions/docker.fish
 curl -L https://raw.githubusercontent.com/docker/compose/master/contrib/completion/fish/docker-compose.fish > ~/.config/fish/completions/docker-compose.fish

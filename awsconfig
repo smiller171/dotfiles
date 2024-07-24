@@ -1,0 +1,10 @@
+[default]
+region=us-east-1
+output=json
+cli-history=enabled
+retry-mode=adaptive
+
+[profile kitcheck]
+credential_process  = aws-vault export --format=json kitcheck
+mfa_serial          = arn:aws:iam::210873117884:mfa/scottmiller
+mfa_process         = ykman oath accounts code --single 'Amazon Web Services:scottmiller@kitcheck'
