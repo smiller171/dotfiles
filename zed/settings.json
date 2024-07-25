@@ -1,0 +1,33 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+{
+  "base_keymap": "VSCode",
+  "ui_font_size": 16,
+  "buffer_font_size": 16,
+  "theme": {
+    "mode": "system",
+    "light": "NeoSolarized Light",
+    "dark": "NeoSolarized Dark"
+  },
+  "terminal": {
+    "copy_on_select": true
+  },
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 1000
+    }
+  },
+  "buffer_font_family": "CaskaydiaCove Nerd Font",
+  "tabs": {
+    "git_status": true
+  },
+  "preferred_line_length": 120,
+  "wrap_guides": [120],
+  "tab_size": 2
+}
