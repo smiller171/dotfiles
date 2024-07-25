@@ -9,7 +9,7 @@ case $(uname) in
       openjdk@11\
       protobuf\
       protoc-gen-go\
-      protog-gen-go-grpc
+      protoc-gen-go-grpc
 
     brew install --cask microsoft-teams
   ;;

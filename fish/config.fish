@@ -20,6 +20,9 @@ if status --is-interactive
     # Enable npx auto-fallback
     # source (npx --shell-auto-fallback fish | psub)
 
+    # Add brew to path
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+
     # Set PATH
     fish_add_path -m \
         ~/.bin \

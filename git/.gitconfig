@@ -1,34 +1,34 @@
 [init]
-	templatedir = ~/.git_template
-	defaultbranch = main
+  templatedir = ~/.git_template
+  defaultbranch = main
 [core]
-	editor = nano
-	excludesfile = ~/.gitignore
-	trustctime = false
+  editor = nano
+  excludesfile = ~/.gitignore
+  trustctime = false
 [user]
-	email = scott@millergeek.xyz
-	name = Scott Miller
+  email = scott@millergeek.xyz
+  name = Scott Miller
 [commit]
-	gpgSign = true
+  gpgSign = true
 [pull]
-	rebase = true
+  rebase = true
 [push]
-	default = current
-	followTags = true
-	gpgSign = if-asked
+  default = current
+  followTags = true
+  gpgSign = if-asked
 [tag]
-	gpgSign = true
+  gpgSign = true
 [gpg]
-	format = ssh
+  format = ssh
 [gpg "ssh"]
-	defaultKeyCommand = sh -c 'echo key::$(ssh-add -L)'
+  defaultKeyCommand = sh -c 'echo key::$(ssh-add -L)'
 [url "https://"]
-	insteadOf = ssh://git@
+  insteadOf = ssh://git@
 [url "https://github.com/"]
-	insteadOf = git@github.com:
-	insteadOf = ssh://git@github.com/
+  insteadOf = git@github.com:
+  insteadOf = ssh://git@github.com/
 [url "https://gitlab.com/"]
-	insteadOf = git@gitlab.com:
-	insteadOf = ssh://git@gitlab.com/
+  insteadOf = git@gitlab.com:
+  insteadOf = ssh://git@gitlab.com/
 [alias]
-	mr = push -o merge_request.create -o merge_request.target=main -o merge_request.merge_when_pipeline_succeeds -o merge_request.remove_source_branch
+  mr = push -o merge_request.create -o merge_request.target=main -o merge_request.merge_when_pipeline_succeeds -o merge_request.remove_source_branch

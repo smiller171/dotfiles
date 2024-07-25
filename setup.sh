@@ -12,6 +12,7 @@ mkdir -p ~/.gnupg
 
 # Fish setup
 mkdir -p ~/.config/fish
+mkdir -p ~/.aws
 ln -sf "$(pwd)/fish/fish_plugins" ~/.config/fish/fish_plugins
 ln -sf "$(pwd)/fish/config.fish" ~/.config/fish/config.fish
 ln -sf "$(pwd)/awsconfig" ~/.aws/config
