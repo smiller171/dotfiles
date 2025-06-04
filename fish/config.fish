@@ -8,6 +8,11 @@ if status --is-interactive
         fisher update && set -U __fisher_updated (date +%G%V)
     end
 
+    # Load .env file if it exists when using vscode terminal
+    if test "$TERM_PROGRAM" = vscode && test -f ".env"
+        dotenv .env && echo "✅ loaded .env"
+    end
+
     # Start or re-use a gpg-agent.
     #
     # set -x GPG_TTY (tty)
@@ -89,3 +94,7 @@ if test -f /opt/homebrew/Caskroom/miniconda/base/bin/conda
     eval /opt/homebrew/Caskroom/miniconda/base/bin/conda "shell.fish" hook $argv | source
 end
 # <<< conda initialize <<<
+
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init2.fish 2>/dev/null || :

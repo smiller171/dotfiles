@@ -52,7 +52,7 @@ case $(uname) in
         'x86_64')
           eval "$(/usr/local/bin/brew shellenv)"
           ;;
-        'arm64')   
+        'arm64')
           eval "$(/opt/homebrew/bin/brew shellenv)"
           ;;
       esac
@@ -131,7 +131,7 @@ case $(uname) in
       terminal-notifier\
       terraform-docs\
       terrascan\
-      tfenv\
+      tenv\
       tflint\
       tfsec\
       thefuck\

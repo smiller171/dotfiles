@@ -16,7 +16,10 @@
     "dark": "NeoSolarized Dark"
   },
   "terminal": {
-    "copy_on_select": true
+    "copy_on_select": true,
+    "shell": {
+      "program": "fish"
+    }
   },
   "autosave": {
     "after_delay": {
