@@ -44,6 +44,8 @@ if status --is-interactive
     set -x SHELL /usr/local/bin/fish
     set -gx EDITOR nano
 
+    status --is-interactive; and jenv init - | source
+
     # Tell Terraform to use AWS Profile
     set -Ux AWS_SDK_LOAD_CONFIG 1
 

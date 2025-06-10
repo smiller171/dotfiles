@@ -74,6 +74,7 @@ case $(uname) in
       ca-certificates\
       coreutils\
       curl\
+      diffutils\
       displayplacer\
       docker-credential-helper-ecr\
       fish\

@@ -33,6 +33,7 @@
 [alias]
   mr = push -o merge_request.create -o merge_request.target=main -o merge_request.merge_when_pipeline_succeeds -o merge_request.remove_source_branch
   unstage = restore --staged
+  oldest-ancestor = !zsh -c 'diff --old-line-format='' --new-line-format='' <(git rev-list --first-parent "${1:-main}") <(git rev-list --first-parent "${2:-HEAD}") | head -1' -
 [credential]
   helper = osxkeychain
 [includeIf "gitdir/i:**/apothesource"]

@@ -5,3 +5,4 @@ edc/bass
 nifoc/ssh-agent-macos.fish
 oh-my-fish/plugin-thefuck
 douglarek/jenv
+evanlucas/fish-kubectl-completions
