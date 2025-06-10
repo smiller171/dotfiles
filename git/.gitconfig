@@ -35,3 +35,8 @@
   unstage = restore --staged
 [credential]
   helper = osxkeychain
+[includeIf "gitdir/i:**/apothesource"]
+  path = ~/.gitconfig-apothesource
+[includeIf "gitdir/i:**/mobilehealth"]
+  path = ~/.gitconfig-mobilehealth
+
