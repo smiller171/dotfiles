@@ -61,7 +61,6 @@ case $(uname) in
     brew tap wata727/tflint
     brew tap yleisradio/terraforms
     brew tap jakehilborn/jakehilborn
-    brew install google-chrome || true
     brew install \
       arc\
       argocd\
@@ -76,6 +75,7 @@ case $(uname) in
       curl\
       diffutils\
       displayplacer\
+      docker\
       docker-credential-helper-ecr\
       fish\
       fluxcd/tap/flux\
@@ -113,6 +113,7 @@ case $(uname) in
       node\
       nushell\
       openssh\
+      orbstack\
       pinentry-mac\
       pinentry\
       pipx\
@@ -149,7 +150,6 @@ case $(uname) in
     brew install --cask\
       beeper\
       bettertouchtool\
-      docker\
       keybase\
       obsidian\
       orbstack\
@@ -185,7 +185,7 @@ case $(uname) in
         'x86_64')
           echo 'eval "$(/usr/local/bin/brew shellenv)"' >> ~/.bash_profile
           ;;
-        'arm64')   
+        'arm64')
           echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.bash_profile
           ;;
       esac
