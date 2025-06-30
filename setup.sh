@@ -86,6 +86,7 @@ case $(uname) in
       gettext\
       gh\
       git\
+      git-filter-repo\
       glab\
       glib\
       gnu-sed\
