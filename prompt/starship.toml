@@ -1,7 +1,7 @@
 format = "$all$line_break$aws$line_break$shell$character"
 
 [kubernetes]
-disabled = false
+disabled = true
 
 [status]
 disabled = false
@@ -14,3 +14,12 @@ disabled = false
 bash_indicator = "bash"
 fish_indicator = "fish"
 unknown_indicator = "????"
+
+[docker_context]
+detect_files = [
+    'docker-compose.yml',
+    'docker-compose.yaml',
+    'compose.yml',
+    'compose.yaml',
+    'Dockerfile'
+]
