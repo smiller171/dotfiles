@@ -1,4 +1,6 @@
-format = "$all$line_break$aws$line_break$shell$character"
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = "$all$line_break$shell$character"
 
 [kubernetes]
 disabled = true
@@ -6,8 +8,11 @@ disabled = true
 [status]
 disabled = false
 
+[time]
+disabled = true
+
 [aws]
-force_display = true
+force_display = false
 
 [shell]
 disabled = false
