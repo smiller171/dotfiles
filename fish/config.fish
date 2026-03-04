@@ -26,7 +26,20 @@ if status --is-interactive
     # source (npx --shell-auto-fallback fish | psub)
 
     # Add brew to path
-    eval "$(/usr/local/bin/brew shellenv)" || eval "$(/opt/homebrew/bin/brew shellenv)"
+    if ! brew --version
+        echo "Installing Homebrew"
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        switch "$(uname -m)"
+            case x86_64
+                eval "$(/usr/local/bin/brew shellenv)"
+            case arm64
+                eval "$(/opt/homebrew/bin/brew shellenv)"
+            case '*'
+                echo 'Failed to set up Homebrew shell environment'
+        end
+    else
+        eval "$(brew shellenv)"
+    end
 
     # Set PATH
     fish_add_path -m \
