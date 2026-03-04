@@ -63,7 +63,7 @@ case $(uname) in
   brew tap jakehilborn/jakehilborn
   brew install \
     arc argocd autoconf aws-iam-authenticator aws-sso-util aws-vault awscli bash ca-certificates coreutils curl diffutils displayplacer docker docker-credential-helper-ecr fish fluxcd/tap/flux fswatch gawk gcc gd gettext gh git git-filter-repo glab glib gnu-sed gnupg gnutls gping grep hadolint helm iterm2 jq k9s keybase keymapp kreuzwerker/taps/m1-terraform-provider-helper kubectl kubernetes-cli kustomize libffi libfido2 libgcrypt mas mkcert nano node nushell openssh orbstack pinentry-mac pinentry pipx pkg-config postman pre-commit pyenv readline shellcheck shfmt smiller171/tap/kubecolor sops ssh-copy-id sshuttle starship telnet terminal-notifier terraform-docs terrascan tenv tflint tfsec thefuck theseal/ssh-askpass/ssh-askpass trunk-io velero watch wget xclip ykman yt-music yq
-  brew install --cask beeper bettertouchtool keybase obsidian orbstack rocket signal visual-studio-code zed
+  brew install --cask beeper bettertouchtool keybase logi-options+ obsidian orbstack rocket signal visual-studio-code zed
   mas install 803453959 || true  # Slack
   mas install 1352778147 || true # Bitwarden
   mas install 1497506650 || true # Yubico Authenticator
