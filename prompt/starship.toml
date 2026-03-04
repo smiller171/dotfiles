@@ -40,9 +40,6 @@ format = '\[[$symbol($version)]($style)\]'
 [c]
 format = '\[[$symbol($version(-$name))]($style)\]'
 
-[cpp]
-format = '\[[$symbol($version(-$name))]($style)\]'
-
 [cmake]
 format = '\[[$symbol($version)]($style)\]'
 
@@ -165,9 +162,6 @@ format = '\[[$symbol($version)]($style)\]'
 
 [pijul_channel]
 format = '\[[$symbol$channel]($style)\]'
-
-[pixi]
-format = '\[[$symbol$version( $environment)]($style)\]'
 
 [pulumi]
 format = '\[[$symbol$stack]($style)\]'
